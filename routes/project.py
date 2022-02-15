@@ -9,6 +9,10 @@ from starlette.status import HTTP_204_NO_CONTENT
 project = APIRouter()
 database=conn.portfolio.ProjectsApp_project
 
+@project.get('/')
+def home():
+    return {"message":"main"}
+
 @project.get('/projects')
 def getProjects():
     return projectsEntity(database.find())
